@@ -96,6 +96,43 @@ public class Node<T extends Comparable<T>> {
         }
     }
 
+    public void preOrderTraversal(Node n) {
+        if (n != null) {
+            System.out.println(n.getData());
+        }
+        if (n.getLeftChild() != null) {
+            preOrderTraversal(n.getLeftChild());
+        }
+        if (n.getRightChild() != null) {
+            preOrderTraversal(n.getRightChild());
+        }
+    }
+
+    public void postOrderTraversal(Node n) {
+        if (n.getLeftChild() != null) {
+            postOrderTraversal(n.getLeftChild());
+        }
+        if (n.getRightChild() != null) {
+            postOrderTraversal(n.getRightChild());
+        }
+        if (n != null) {
+            System.out.println(n.getData());
+        }
+    }
+
+    public void inOrderTraversal(Node n) {
+        if (n.getLeftChild() != null) {
+            inOrderTraversal(n.getLeftChild());
+        }
+        if (n != null) {
+            System.out.println(n.getData());
+        }
+        if (n.getRightChild() != null) {
+            inOrderTraversal(n.getRightChild());
+        }
+
+    }
+
     public T getData() {
         return this.data;
     }

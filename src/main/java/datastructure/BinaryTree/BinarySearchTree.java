@@ -36,7 +36,19 @@ public class BinarySearchTree<T extends Comparable<T>> {
         }
     }
 
-    public Node findRecursiveMax() {
+    public void preOrderTraversal() {
+        rootNode.preOrderTraversal(rootNode);
+    }
+
+    public void postOrderTraversal() {
+        rootNode.postOrderTraversal(rootNode);
+    }
+
+    public void inOrderTraversal() {
+        rootNode.inOrderTraversal(rootNode);
+    }
+
+        public Node findRecursiveMax() {
         return rootNode.findRecursiveMax(rootNode);
     }
 
@@ -60,18 +72,20 @@ public class BinarySearchTree<T extends Comparable<T>> {
 
         BinarySearchTree<Integer> bt = new BinarySearchTree();
         bt.insertNode(10);
-        bt.insertNode(9);
-
-        bt.insertNode(8);
         bt.insertNode(7);
+        bt.insertNode(13);
+        bt.insertNode(6);
+        bt.insertNode(8);
+        bt.insertNode(12);
+        bt.insertNode(15);
 
-        bt.insertNode(11);
-        bt.insertNode(14);
-        bt.insertNode(3);
-        bt.insertNode(4);
 
         bt.levelOrderVisiting();
         System.out.println();
-
+        bt.preOrderTraversal();
+        System.out.println();
+        bt.postOrderTraversal();
+        System.out.println();
+        bt.inOrderTraversal();
     }
 }
