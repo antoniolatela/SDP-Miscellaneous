@@ -48,6 +48,10 @@ public class BinarySearchTree<T extends Comparable<T>> {
         rootNode.inOrderTraversal(rootNode);
     }
 
+    public boolean isBST () {
+        return rootNode.isBST(rootNode);
+    }
+
         public Node findRecursiveMax() {
         return rootNode.findRecursiveMax(rootNode);
     }
@@ -87,5 +91,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
         bt.postOrderTraversal();
         System.out.println();
         bt.inOrderTraversal();
+        System.out.println();
+        System.out.println(bt.isBST());
     }
 }
