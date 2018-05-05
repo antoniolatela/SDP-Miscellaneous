@@ -76,12 +76,22 @@ public class BinarySearchTree<T extends Comparable<T>> {
 
         BinarySearchTree<Integer> bt = new BinarySearchTree();
         bt.insertNode(10);
+        bt.insertNode(8);
         bt.insertNode(7);
         bt.insertNode(13);
-        bt.insertNode(6);
-        bt.insertNode(8);
+        bt.insertNode(4);
+        bt.insertNode(5);
+
         bt.insertNode(12);
         bt.insertNode(15);
+        bt.insertNode(150);
+        bt.insertNode(105);
+        bt.insertNode(115);
+        bt.insertNode(151);
+        bt.insertNode(515);
+        bt.insertNode(1500);
+        bt.insertNode(1115);
+        bt.insertNode(145);
 
 
         bt.levelOrderVisiting();

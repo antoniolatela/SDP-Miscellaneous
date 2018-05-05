@@ -136,11 +136,13 @@ public class Node<T extends Comparable<T>> {
     boolean isBST(Node n) {
         if (n == null) throw new IndexOutOfBoundsException("Empty tree!");
         if (n.getLeftChild() != null) {
-            if (n.getLeftChild().getData().compareTo(getData()) < 0) {
+            if (n.getLeftChild().getData().compareTo(n.getData()) < 0) {
+
                 isBST(n.getLeftChild());
             } else return false;
         } if (n.getRightChild() != null) {
-            if (n.getRightChild().getData().compareTo(getData()) > 0) {
+            if (n.getRightChild().getData().compareTo(n.getData()) > 0) {
+
                 isBST(n.getRightChild());
             } else return false;
         }
