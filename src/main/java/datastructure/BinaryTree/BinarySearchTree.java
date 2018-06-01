@@ -40,6 +40,10 @@ public class BinarySearchTree<T extends Comparable<T>> {
         rootNode.preOrderTraversal(rootNode);
     }
 
+    public void inOrderIterativeTraversal() {
+        rootNode.inOrderIterativeTraversal(rootNode);
+    }
+
     public void postOrderTraversal() {
         rootNode.postOrderTraversal(rootNode);
     }
@@ -50,6 +54,10 @@ public class BinarySearchTree<T extends Comparable<T>> {
 
     public boolean isBST () {
         return rootNode.isBST(rootNode);
+    }
+
+    public void preOrderIterativeTraversal() {
+        rootNode.preOrderIterativeTraversal(rootNode);
     }
 
         public Node findRecursiveMax() {
@@ -72,36 +80,65 @@ public class BinarySearchTree<T extends Comparable<T>> {
         rootNode.levelOrderVisiting(rootNode);
     }
 
-    public static void main(String[] args) {
+    public void deleteNode(T t) {
+        rootNode.deleteNode(t);
+    }
 
-        BinarySearchTree<Integer> bt = new BinarySearchTree();
-        bt.insertNode(10);
-        bt.insertNode(8);
-        bt.insertNode(7);
-        bt.insertNode(13);
-        bt.insertNode(4);
-        bt.insertNode(5);
+        public static void main(String[] args) {
 
-        bt.insertNode(12);
-        bt.insertNode(15);
-        bt.insertNode(150);
-        bt.insertNode(105);
-        bt.insertNode(115);
-        bt.insertNode(151);
-        bt.insertNode(515);
-        bt.insertNode(1500);
-        bt.insertNode(1115);
-        bt.insertNode(145);
+        BinarySearchTree<String> bt = new BinarySearchTree();
+            bt.insertNode("eval");
+            bt.insertNode("asse");
+            bt.insertNode("fina");
+            bt.insertNode("proj");
+            bt.insertNode("impl");
+            bt.insertNode("rath");
+            bt.insertNode("than");
+            bt.insertNode("chro");
+            bt.insertNode("acco");
+            bt.insertNode("deve");
+            bt.insertNode("shou");
+            bt.insertNode("desc");
+            bt.insertNode("prob");
+            bt.insertNode("whic");
+            bt.insertNode("addr");
+            /*bt.insertNode(5);
+            bt.insertNode(3);
+            bt.insertNode(9);
+            bt.insertNode(2);
+            bt.insertNode(4);
+            bt.insertNode(7);
+            bt.insertNode(10);
+            bt.insertNode(6);
+            bt.insertNode(8);
+            bt.insertNode('a');
+            bt.insertNode('b');
+            bt.insertNode('c');
+            bt.insertNode('d');
+            bt.insertNode('e');
+            bt.insertNode('f');
+            bt.insertNode('g');
+            bt.insertNode('h');*/
 
 
-        bt.levelOrderVisiting();
-        System.out.println();
-        bt.preOrderTraversal();
+
+
+        //bt.levelOrderVisiting();
+        //System.out.println();
+        /*bt.preOrderTraversal();
         System.out.println();
         bt.postOrderTraversal();
         System.out.println();
         bt.inOrderTraversal();
         System.out.println();
         System.out.println(bt.isBST());
+*/
+
+            //System.out.println();
+            //bt.preOrderTraversal();
+            //System.out.println();
+            //bt.preOrderIterativeTraversal();
+            bt.deleteNode("addr");
+            System.out.println(bt.find("addr"));
     }
 }

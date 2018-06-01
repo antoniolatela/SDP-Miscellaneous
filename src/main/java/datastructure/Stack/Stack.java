@@ -25,7 +25,8 @@ public class Stack<T> {
     }
 
     public T peek(){
-        return array[pointer];
+        if (pointer > -1) return array[pointer];
+        else return null;
     }
 
     private void doubleArray() {
@@ -53,13 +54,19 @@ public class Stack<T> {
 
     public static void main(String[] args) {
 
-        Stack<Integer> s = new Stack<>();
-        s.push(1);
-        s.push(5);
+        Stack<Character> s = new Stack<>();
+        s.push('a');
+        s.push('b');
+        s.push('c');
+        s.push('d');
+        s.push('e');
 
         System.out.println(s);
         System.out.println(s.pop());
         System.out.println(s);
+        s.push('F');
+        System.out.println(s);
+
 
     }
 }

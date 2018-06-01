@@ -2,7 +2,7 @@ package datastructure.Queue;
 
 public class Queue<T> {
 
-    private int INITIAL_VALUE = 10;
+    private int INITIAL_VALUE = 20;
 
     private T[] array;
 

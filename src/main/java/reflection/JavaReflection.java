@@ -33,14 +33,14 @@ public class JavaReflection {
         //from a class
         Class<JavaReflection> test = JavaReflection.class;
         for (Method m: test.getMethods()){
-            //System.out.println(m.getName());
+            System.out.println(m.getName());
         }
 
         //from an instance
         JavaReflection t = new JavaReflection("bello");
         Class test1 = t.getClass();
         Method m1 = (Method)test1.getMethods()[1];
-        //m1.invoke(t);
+        m1.invoke(t);
         for (Method m: test.getMethods()){
             //System.out.println(m.getName());
         }

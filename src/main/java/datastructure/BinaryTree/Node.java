@@ -1,6 +1,10 @@
 package datastructure.BinaryTree;
 
 import datastructure.Queue.Queue;
+import datastructure.Stack.Stack;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class Node<T extends Comparable<T>> {
 
@@ -12,7 +16,7 @@ public class Node<T extends Comparable<T>> {
         this.data = data;
     }
 
-    public Node find (T data) {
+    public Node find(T data) {
         if (this.data == data) return this;
         int compare = data.compareTo(this.data);
         if (compare < 0 && this.getLeftChild() != null) {
@@ -31,20 +35,18 @@ public class Node<T extends Comparable<T>> {
             if (this.rightChild == null) {
                 System.out.println("insert to r " + data);
                 this.rightChild = new Node(data);
-            }
-            else
-            this.rightChild.insert(data);
+            } else
+                this.rightChild.insert(data);
         } else {
             if (this.leftChild == null) {
                 System.out.println("insert to l " + data);
                 this.leftChild = new Node(data);
-            }
-            else
+            } else
                 this.leftChild.insert(data);
         }
     }
 
-    public Node findIterativeMin(){
+    public Node findIterativeMin() {
         Node tmp = this;
         while (tmp.getLeftChild() != null) {
             tmp = tmp.getLeftChild();
@@ -62,7 +64,7 @@ public class Node<T extends Comparable<T>> {
 
     public int findWeight(Node n) {
         if (n == null) return 0;
-        int i = Math.max(findWeight(n.getLeftChild()), findWeight(n.getRightChild())) +1;
+        int i = Math.max(findWeight(n.getLeftChild()), findWeight(n.getRightChild())) + 1;
         System.out.println("Max: l-> " + n.getLeftChild() + "Data: " + n.getData() + " r-> " + n.getRightChild() + " i: " + i);
 
         return i;
@@ -71,15 +73,17 @@ public class Node<T extends Comparable<T>> {
     public int findHeigt(Node n) {
         if (n == null) return -1;
         System.out.println("Max: l-> " + n.getLeftChild() + "Data: " + n.getData() + " r-> " + n.getRightChild());
-        return Math.max(findHeigt(n.getLeftChild()), findHeigt(n.getRightChild())) +1;
+        return Math.max(findHeigt(n.getLeftChild()), findHeigt(n.getRightChild())) + 1;
     }
 
     public Node findRecursiveMax(Node n) {
-        if (n.getRightChild() != null) return findRecursiveMax(n.getRightChild()); else return n;
+        if (n.getRightChild() != null) return findRecursiveMax(n.getRightChild());
+        else return n;
     }
 
     public Node findRecursiveMin(Node n) {
-        if (n.getRightChild() != null) return findRecursiveMin(n.getRightChild()); else return n;
+        if (n.getRightChild() != null) return findRecursiveMin(n.getRightChild());
+        else return n;
     }
 
     public void levelOrderVisiting(Node n) {
@@ -107,6 +111,48 @@ public class Node<T extends Comparable<T>> {
             preOrderTraversal(n.getRightChild());
         }
     }
+
+    public void inOrderIterativeTraversal(Node n) {
+        Stack<Node> stack = new Stack<>();
+        if (n == null) return;
+        else {
+            stack.push(n);
+            while (true) {
+                if (n.getLeftChild() != null) {
+                    n = n.getLeftChild();
+                    stack.push(n);
+                } else {
+                    if (stack.peek() == null) break;
+                    else n = stack.pop();
+                    System.out.println(n.getData());
+                    if (n.getRightChild() != null) {
+                        n = n.getRightChild();
+                        stack.push(n);
+                    }
+                }
+            }
+        }
+    }
+
+    public void preOrderIterativeTraversal(Node n) {
+        Stack<Node> stack = new Stack<>();
+        int count = 1;
+        List list = Arrays.asList(3, 6, 9, 12, 15);
+        while (true) {
+
+            if (n != null) {
+                stack.push(n);
+                System.out.println(n);
+                n = n.getLeftChild();
+            } else {
+                if (stack.peek() == null) break;
+                n = stack.pop().getRightChild();
+            }
+            System.out.println(stack);
+
+        }
+    }
+
 
     public void postOrderTraversal(Node n) {
         if (n.getLeftChild() != null) {
@@ -140,13 +186,24 @@ public class Node<T extends Comparable<T>> {
 
                 isBST(n.getLeftChild());
             } else return false;
-        } if (n.getRightChild() != null) {
+        }
+        if (n.getRightChild() != null) {
             if (n.getRightChild().getData().compareTo(n.getData()) > 0) {
 
                 isBST(n.getRightChild());
             } else return false;
         }
         return true;
+    }
+
+
+    public void deleteNode(T data) {
+        Node node = find(data);
+        System.out.println(node);
+        if (node != null && node.getLeftChild() == null && node.getRightChild() == null) {
+            node = null;
+        }
+        System.out.println(node);
     }
 
     public T getData() {
@@ -169,4 +226,8 @@ public class Node<T extends Comparable<T>> {
         this.rightChild = rightChild;
     }
 
+    @Override
+    public String toString() {
+        return this.getData().toString();
+    }
 }

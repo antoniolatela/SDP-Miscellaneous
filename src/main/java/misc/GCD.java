@@ -10,6 +10,6 @@ public class GCD {
     }
 
     public static void main(String[] args) {
-        System.out.println(new GCD().getGCD(23434,45368));
+        System.out.println(new GCD().getGCD(24,5));
     }
 }
