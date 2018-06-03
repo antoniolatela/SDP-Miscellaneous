@@ -7,10 +7,10 @@ public class Montecarlo {
     boolean b = true;
     boolean w = false;
 
-    int total = 0;
-    int results = 0;
+    public int total = 0;
+    public int results = 0;
 
-    boolean testMC() {
+    public boolean testMC() {
         boolean[] bw = {b, b, b, w, w, w};
         boolean[] out = new boolean[3];
 
