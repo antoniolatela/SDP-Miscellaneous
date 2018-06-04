@@ -136,8 +136,6 @@ public class Node<T extends Comparable<T>> {
 
     public void preOrderIterativeTraversal(Node n) {
         Stack<Node> stack = new Stack<>();
-        int count = 1;
-        List list = Arrays.asList(3, 6, 9, 12, 15);
         while (true) {
 
             if (n != null) {

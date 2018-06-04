@@ -61,15 +61,16 @@ public class GenericTestTwo<T extends Number, K, V extends Stream> {
         for (T x : i) {System.out.println((Integer)j-(Integer)x);}
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CloneNotSupportedException {
         GenericTestTwo<Integer, Integer, Stream> gtt = new GenericTestTwo<>();
         System.out.println(gtt.ar.add(-1));
         System.out.println(gtt.ar.add(1));
         HashMap<Runnable, HashMap<Integer, Stream>> m = new HashMap<>();
         Runnable r = ()->System.out.println("Ciao");
-
+        GenericTestTwo gtt2 = (GenericTestTwo) gtt.clone();
         m.put(r, null);
         gtt.someWildCard(m);
         System.out.println(gtt.hashCode());
     }
+
 }
